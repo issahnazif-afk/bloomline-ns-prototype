@@ -50,11 +50,11 @@ def main():
             errors.append(f"console: {m.text}")
         page.on("console", on_console)
 
-        rendered = lambda layer="pixels": page.evaluate(f"__habtrail.map.queryRenderedFeatures({{layers:['{layer}']}}).length")
+        rendered = lambda layer="pixels": page.evaluate(f"__bloomline.map.queryRenderedFeatures({{layers:['{layer}']}}).length")
         settle = lambda ms=1400: page.wait_for_timeout(ms)
 
         # 1. overview
-        page.goto(a.url + "#layer=habtrail")
+        page.goto(a.url + "#layer=bloom")
         page.wait_for_selector(".zone-pill"); page.wait_for_selector(".date-tab"); settle(1800)
         check("6 zone pills", page.locator(".zone-pill").count() == 6)
         check("4 date tabs", page.locator(".date-tab").count() == 4)
@@ -67,7 +67,7 @@ def main():
         n = rendered(); check("pixels drawn in zone", n > 50, f"{n} rendered")
         check("zone card shows name", "Bedford Basin" in page.locator(".zone-card").inner_text())
         check("legend has 5 classes", page.locator(".legend-row").count() == 5)
-        page.screenshot(path=str(out / "2-zone-habtrail.png"))
+        page.screenshot(path=str(out / "2-zone-bloom.png"))
 
         # 3. date tab changes values
         before = page.locator(".legend-row .count").all_inner_texts()
@@ -78,9 +78,9 @@ def main():
         page.screenshot(path=str(out / "3-zone-day3.png"))
 
         # 3b. hover tooltip on a pixel
-        x, y = page.evaluate("(() => { const m = __habtrail.map, f = m.queryRenderedFeatures({layers: ['pixels']})[5], p = m.project(f.geometry.coordinates), r = document.getElementById('map').getBoundingClientRect(); return [p.x + r.left, p.y + r.top]; })()")
+        x, y = page.evaluate("(() => { const m = __bloomline.map, f = m.queryRenderedFeatures({layers: ['pixels']})[5], p = m.project(f.geometry.coordinates), r = document.getElementById('map').getBoundingClientRect(); return [p.x + r.left, p.y + r.top]; })()")
         page.mouse.move(x - 40, y); page.mouse.move(x, y, steps=4); settle(300)
-        check("hover tooltip shows value and pixel source", page.locator(".tip").is_visible() and "HABtrail" in page.locator(".tip").inner_text(), page.locator(".tip").inner_text().replace("\n", " | ") if page.locator(".tip").is_visible() else "no tooltip")
+        check("hover tooltip shows value and pixel source", page.locator(".tip").is_visible() and "Bloom risk" in page.locator(".tip").inner_text(), page.locator(".tip").inner_text().replace("\n", " | ") if page.locator(".tip").is_visible() else "no tooltip")
         page.screenshot(path=str(out / "3b-hover.png"))
         page.mouse.move(5, 400)
 
@@ -132,10 +132,10 @@ def main():
         page.locator(".lang-btn").click()
 
         # 10. plain basemap + mobile
-        page.goto(a.url + "#layer=habtrail&zone=OUH&basemap=plain"); page.wait_for_selector(".zone-pill"); settle(2200)
+        page.goto(a.url + "#layer=bloom&zone=OUH&basemap=plain"); page.wait_for_selector(".zone-pill"); settle(2200)
         check("deep link opens zone", rendered() > 20, f"{rendered()} px")
         page.screenshot(path=str(out / "10-plain.png"))
-        page.set_viewport_size({"width": 390, "height": 844}); page.goto(a.url + "#layer=habtrail&zone=BDB"); page.reload(); page.wait_for_selector(".zone-pill"); settle(2400)
+        page.set_viewport_size({"width": 390, "height": 844}); page.goto(a.url + "#layer=bloom&zone=BDB"); page.reload(); page.wait_for_selector(".zone-pill"); settle(2400)
         page.screenshot(path=str(out / "11-mobile.png"))
         right_edge = page.evaluate("Math.max(...[...document.querySelectorAll('.round-btn')].map(b => b.getBoundingClientRect().right))")
         check("action buttons fit the phone screen", right_edge <= 390, f"right edge {right_edge:.0f}px")

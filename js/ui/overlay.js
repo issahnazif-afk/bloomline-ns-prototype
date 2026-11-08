@@ -9,7 +9,7 @@ import { TYPE_CODES } from '../classify.js';
 export function createOverlay({ meta, zones }, { onViewZone }) {
   const el = h('aside', { class: 'overlay panel', hidden: true });
   let alerts = [];
-  const hab = meta.layers.find((l) => l.id === 'habtrail');
+  const hab = meta.layers.find((l) => l.id === 'bloom');
   const zoneName = (i) => pick(zones.features[i].properties, 'name');
 
   const close = () => set({ overlay: null });
@@ -48,7 +48,7 @@ export function createOverlay({ meta, zones }, { onViewZone }) {
         h('dl', null, TYPE_CODES.map((c) => [h('dt', null, `${c}: ${t(`type.${c}`)}`), h('dd', null, t(`type.${c}.info`))])),
         h('h3', null, t('about.sources.title')),
         h('dl', null,
-          h('dt', null, pick(hab, 'label')), h('dd', null, t('about.src.habtrail')),
+          h('dt', null, pick(hab, 'label')), h('dd', null, t('about.src.bloom')),
           h('dt', null, `${pick(meta.layers.find((l) => l.id === 'chla'), 'label')}, SST, ${pick(meta.layers.find((l) => l.id === 'sediments'), 'label')}`), h('dd', null, t('about.src.satellite')),
           h('dt', null, `${pick(meta.layers.find((l) => l.id === 'salinity'), 'label')}, ${pick(meta.layers.find((l) => l.id === 'wqi'), 'label')}`), h('dd', null, t('about.src.insitu')),
           h('dt', null, pick(meta.layers.find((l) => l.id === 'interdictions'), 'label')), h('dd', null, t('about.src.closures'))),

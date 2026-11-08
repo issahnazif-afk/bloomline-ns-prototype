@@ -49,7 +49,7 @@ Polygon features. Required properties: `id` (equals position in the file), `code
 
 **Pixel layer** (`type: "pixels"`): `id`, `label_en/fr`, `unit`, `decimals`, `legend_title_en/fr`, `tooltip_en/fr`, `footnote_en/fr`, `summary` (`mean`, `p90` or `p10`: how a zone's pixels are reduced to one colour in the all-zones view), `updated` (ISO time with offset), `source`, and `classes[]`.
 
-**Classes** run from highest to lowest severity. Each has `id`, `label_en/fr`, `min` (inclusive), `max` (exclusive), `color`. Use `null` for an open end. The first class that matches wins. The HABtrail layer must have classes with ids `very_high` and `high`: alerts are computed from them.
+**Classes** run from highest to lowest severity. Each has `id`, `label_en/fr`, `min` (inclusive), `max` (exclusive), `color`. Use `null` for an open end. The first class that matches wins. The bloom-risk layer must have classes with ids `very_high` and `high`: alerts are computed from them.
 
 **Table layer** (`type: "table"`): the shellfish closures layer.
 

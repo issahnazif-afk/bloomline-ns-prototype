@@ -33,7 +33,7 @@ def now_halifax():
         return datetime.now(timezone(timedelta(hours=-4)))
 
 
-# --- class definitions: min inclusive, max exclusive; colours follow the original HABTRAIL ramp ---
+# --- class definitions: min inclusive, max exclusive; colours follow the ramp of the Portuguese reference app ---
 RED, ORANGE, YELLOW, GREEN, TEAL, GREY = "#ef4444", "#f59e0b", "#facc15", "#34d058", "#19c3b1", "#8b95a5"
 
 
@@ -51,10 +51,10 @@ LAYERS = [
         "footnote_fr": "Ces fermetures sont synthétiques. Les vraies fermetures viennent de l'autorité réglementaire.",
     },
     {
-        "id": "habtrail", "type": "pixels", "summary": "p90", "unit": "%", "decimals": 0,
-        "label_en": "HABtrail", "label_fr": "HABtrail",
+        "id": "bloom", "type": "pixels", "summary": "p90", "unit": "%", "decimals": 0,
+        "label_en": "Bloom risk", "label_fr": "Risque de PAN",
         "legend_title_en": "HAB Probability", "legend_title_fr": "Probabilité de PAN",
-        "tooltip_en": "HABtrail", "tooltip_fr": "HABtrail",
+        "tooltip_en": "Bloom risk", "tooltip_fr": "Risque de PAN",
         "footnote_en": "*HAB: Harmful Algal Bloom", "footnote_fr": "*PAN : prolifération d'algues nuisibles",
         "classes": classes([
             ("very_high", "Very High", "Très élevée", 90, INF, RED),
@@ -205,7 +205,7 @@ def main():
         t0[dist < r * 0.55] = KRI
     t0[(rng.random(n) < 0.04) & (t0 == OBS)] = INT
 
-    values = {k: [] for k in ("habtrail", "chla", "sst", "salinity", "wqi", "sediments")}
+    values = {k: [] for k in ("bloom", "chla", "sst", "salinity", "wqi", "sediments")}
     types = []
     for day in range(4):
         nz = 0.85 * base_noise + 0.5 * smooth_noise(rng, K)
@@ -219,7 +219,7 @@ def main():
         wqi = np.clip(92 - 30 * g - 0.55 * excess + 3 * nz2, 4, 99)
         inh_boost = np.array([2.0 if z in ("INH", "NWA") else 0.0 for z in zone_code])
         sed = np.clip(1.4 + 4.2 * g + inh_boost + 0.8 * nz, 0.2, 30)
-        values["habtrail"].append(np.round(hab).astype(int))
+        values["bloom"].append(np.round(hab).astype(int))
         values["chla"].append(np.round(chla, 2)); values["sst"].append(np.round(sst, 1))
         values["salinity"].append(np.round(sal, 1)); values["wqi"].append(np.round(wqi).astype(int))
         values["sediments"].append(np.round(sed, 1))
@@ -238,7 +238,7 @@ def main():
     closed_prev = {}
     for day in range(4):
         zone_max = {}
-        for z, h in zip(zone_code, values["habtrail"][day]):
+        for z, h in zip(zone_code, values["bloom"][day]):
             zone_max[z] = max(zone_max.get(z, 0), int(h))
         payload = {}
         for z, species in ZONE_SPECIES.items():
@@ -285,7 +285,7 @@ def main():
     for lid in values:
         a = np.concatenate([x.astype(float) for x in values[lid]])
         print(f"  {lid:10s} min {a.min():7.2f}  mean {a.mean():7.2f}  max {a.max():7.2f}")
-    h = values["habtrail"]
+    h = values["bloom"]
     for day in range(4):
         print(f"  day {day}: HAB>=70% pixels: {(h[day] >= 70).sum()}, >=90%: {(h[day] >= 90).sum()}")
     print("  types day0:", {k: int((t0 == v).sum()) for k, v in (("OBS", OBS), ("INT", INT), ("KRI", KRI))})

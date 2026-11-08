@@ -1,4 +1,4 @@
-// Forecast-based alerts, worked out in the browser from the HABtrail layer for all forecast days.
+// Forecast-based alerts, worked out in the browser from the bloom-risk layer for all forecast days.
 // A zone alerts when any of its pixels reaches the "high" class on any forecast day.
 
 import { classIndex } from './classify.js';
@@ -6,7 +6,7 @@ import { classIndex } from './classify.js';
 export const ALERT_LEVELS = ['very_high', 'high'];
 
 /**
- * @param layer     the habtrail layer definition from meta.json (needs classes with ids "very_high" and "high")
+ * @param layer     the bloom layer definition from meta.json (needs classes with ids "very_high" and "high")
  * @param days      array (one per forecast date) of { v: number[] } aligned with the grid
  * @param zoneOfPx  grid.zone
  * @param nZones    number of zones

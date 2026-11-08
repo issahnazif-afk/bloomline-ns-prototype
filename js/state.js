@@ -1,7 +1,7 @@
 // One small store. Modules call set() and subscribe with on().
 
 export const state = {
-  layerId: 'habtrail',
+  layerId: 'bloom',
   dateIdx: 0,
   zoneId: null,                 // index into grid.zones, or null for the all-zones view
   types: { 0: true, 1: true, 2: true, 3: true },   // OBS, MOD, INT, KRI visibility

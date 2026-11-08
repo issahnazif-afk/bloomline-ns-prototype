@@ -1,6 +1,6 @@
-# HABTRAIL · Halifax Harbour prototype
+# Bloomline · Halifax Harbour prototype
 
-A front-end prototype of a pixel-by-pixel harmful algal bloom (HAB) forecast dashboard for Halifax Harbour, Nova Scotia. It follows the pattern of the HABTRAIL web app: a dark satellite map, zone view with 300 m pixels, forecast date tabs, layer menu, alerts, and a species closure table.
+A front-end prototype of a pixel-by-pixel harmful algal bloom (HAB) forecast dashboard for Halifax Harbour, Nova Scotia. It uses a familiar forecast-dashboard layout: a dark satellite map, zone view with 300 m pixels, forecast date tabs, layer menu, alerts, and a species closure table.
 
 **Every value on the map is synthetic sample data.** The interface is real; the numbers are not, and the page says so. No model has been built yet. The plan is front end first, then a data audit, then the model on whatever data turns out to be usable.
 
@@ -14,10 +14,10 @@ A front-end prototype of a pixel-by-pixel harmful algal bloom (HAB) forecast das
 - **All-zones view**: six prototype zones coloured by the active layer, with clickable zone pills and a zone list (keyboard reachable).
 - **Zone view**: every 300 m pixel as a dot, coloured by class, with hover or tap values.
 - **Pixel source filter** (OBS observed, MOD modelled, INT interpolated, KRI kriged): show or hide pixels by where their value came from, with counts. This is the map-level filter requested in action A-05.
-- **Layers**: HABtrail, Chlorophyll-a, SST, Salinity, Water Quality Index, Sediments (suspended matter), Shellfish closures.
+- **Layers**: Bloom risk, Chlorophyll-a, SST, Salinity, Water Quality Index, Sediments (suspended matter), Shellfish closures.
 - **Forecast dates**: today plus three days. Layers, legend counts, alerts and the closure table all follow the selected date.
 - **Select area**: drag a box over pixels and get a trend card (line over the four dates with a dashed average).
-- **Alerts**: worked out in the browser from the HABtrail layer for all forecast days (any pixel at or above the "high" class).
+- **Alerts**: worked out in the browser from the bloom-risk layer for all forecast days (any pixel at or above the "high" class).
 - **English and French**, **satellite or plain basemap**, **shareable links** (`#layer=chla&date=2026-11-09&zone=BDB&lang=fr`), phone layout, keyboard focus, reduced motion.
 
 ## Run it
@@ -46,7 +46,7 @@ Then in the repository: **Settings → Pages → Build and deployment → Deploy
 
 ```
 index.html            page shell
-css/styles.css        design tokens and layout (look follows the HABTRAIL app)
+css/styles.css        design tokens and layout
 js/main.js            controller: state change -> load files -> one view -> map + panels
 js/map.js             MapLibre: imagery, zones, pixel dots, zone pills, area selection
 js/ui/*.js            top bar, legend, zone card, closures table, alerts/about, trend chart, tooltip

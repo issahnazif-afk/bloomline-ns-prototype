@@ -78,7 +78,7 @@ export function createTopbar({ meta, onLang }) {
 
     root.append(
       h('div', { class: 'left-stack' },
-        h('a', { class: 'brand', href: './', 'aria-label': `HABTRAIL, ${t('brand.tag')}` }, h('span', { class: 'brand-h' }, 'H'), 'ABTRAIL'),
+        h('a', { class: 'brand', href: './', 'aria-label': `Bloomline, ${t('brand.tag')}` }, h('img', { class: 'brand-mark', src: 'assets/favicon.svg', alt: '', width: 30, height: 30 }), h('span', { class: 'brand-word' }, h('span', { class: 'brand-h' }, 'Bloom'), 'line')),
         status),
       dates,
       h('div', { class: 'actions' }, layersBtn, alertsBtn, aboutBtn, langBtn, menu));

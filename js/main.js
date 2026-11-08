@@ -1,4 +1,4 @@
-// HABTRAIL Halifax Harbour prototype: controller.
+// Bloomline Halifax Harbour prototype: controller.
 // Flow: state change -> load the files for the active layer -> build one "view" -> push it to the map and panels.
 
 import { h, announce } from './dom.js';
@@ -64,7 +64,7 @@ async function boot() {
   });
   const closures = createClosures({ meta, zones });
   const overlay = createOverlay({ meta, zones }, {
-    onViewZone: (zone, dateIdx) => { set({ overlay: null, layerId: 'habtrail', dateIdx }); selectZone(zone); },
+    onViewZone: (zone, dateIdx) => { set({ overlay: null, layerId: 'bloom', dateIdx }); selectZone(zone); },
   });
   document.getElementById('ui').append(
     topbar.el, h('div', { class: 'dock' }, zonecard.el, legend.el), closures.el, overlay.el, trend.el, tooltip.el);
@@ -87,7 +87,7 @@ async function boot() {
     },
   });
 
-  window.__habtrail = { map: mapApi.map, state };   // debugging and tests only
+  window.__bloomline = { map: mapApi.map, state };   // debugging and tests only
 
   // ----- view building -----
   function zoneColorFromFraction(f) { return f === 0 ? '#34d058' : f <= 0.34 ? '#facc15' : f <= 0.67 ? '#f59e0b' : '#ef4444'; }
@@ -258,10 +258,10 @@ async function boot() {
   await refresh();
   syncHash();
 
-  // alerts come from the HABtrail layer across all forecast dates
-  const hab = layerOf('habtrail');
+  // alerts come from the bloom-risk layer across all forecast dates
+  const hab = layerOf('bloom');
   if (hab) {
-    loadLayerDays('habtrail', meta.dates).then((days) => {
+    loadLayerDays('bloom', meta.dates).then((days) => {
       const alerts = computeAlerts(hab, days, grid.zone, zones.features.length);
       topbar.setAlertCount(alerts.length);
       overlay.setAlerts(alerts);

@@ -3,7 +3,7 @@
  "dataset": {
   "kind": "sample",
   "name": "Halifax Harbour prototype — synthetic sample",
-  "generated_at": "2026-11-08T07:47:34-04:00",
+  "generated_at": "2026-11-08T07:34:18-04:00",
   "note": "All values are synthetic and for interface demonstration only. Not for operational or safety decisions."
  },
  "dates": [
@@ -27,21 +27,21 @@
    "label_fr": "Fermetures de mollusques (exemple)",
    "footnote_en": "Closures here are synthetic. Real closures come from the regulator.",
    "footnote_fr": "Ces fermetures sont synthétiques. Les vraies fermetures viennent de l'autorité réglementaire.",
-   "updated": "2026-11-08T07:47:34-04:00",
+   "updated": "2026-11-08T07:34:18-04:00",
    "source": "SAMPLE (synthetic)"
   },
   {
-   "id": "habtrail",
+   "id": "bloom",
    "type": "pixels",
    "summary": "p90",
    "unit": "%",
    "decimals": 0,
-   "label_en": "HABtrail",
-   "label_fr": "HABtrail",
+   "label_en": "Bloom risk",
+   "label_fr": "Risque de PAN",
    "legend_title_en": "HAB Probability",
    "legend_title_fr": "Probabilité de PAN",
-   "tooltip_en": "HABtrail",
-   "tooltip_fr": "HABtrail",
+   "tooltip_en": "Bloom risk",
+   "tooltip_fr": "Risque de PAN",
    "footnote_en": "*HAB: Harmful Algal Bloom",
    "footnote_fr": "*PAN : prolifération d'algues nuisibles",
    "classes": [
@@ -86,7 +86,7 @@
      "color": "#19c3b1"
     }
    ],
-   "updated": "2026-11-08T07:47:34-04:00",
+   "updated": "2026-11-08T07:34:18-04:00",
    "source": "SAMPLE (synthetic)"
   },
   {
@@ -137,7 +137,7 @@
      "color": "#34d058"
     }
    ],
-   "updated": "2026-11-08T07:47:34-04:00",
+   "updated": "2026-11-08T07:34:18-04:00",
    "source": "SAMPLE (synthetic)"
   },
   {
@@ -188,7 +188,7 @@
      "color": "#34d058"
     }
    ],
-   "updated": "2026-11-08T07:47:34-04:00",
+   "updated": "2026-11-08T07:34:18-04:00",
    "source": "SAMPLE (synthetic)"
   },
   {
@@ -239,7 +239,7 @@
      "color": "#f59e0b"
     }
    ],
-   "updated": "2026-11-08T07:47:34-04:00",
+   "updated": "2026-11-08T07:34:18-04:00",
    "source": "SAMPLE (synthetic)"
   },
   {
@@ -298,7 +298,7 @@
      "color": "#ef4444"
     }
    ],
-   "updated": "2026-11-08T07:47:34-04:00",
+   "updated": "2026-11-08T07:34:18-04:00",
    "source": "SAMPLE (synthetic)"
   },
   {
@@ -349,7 +349,7 @@
      "color": "#34d058"
     }
    ],
-   "updated": "2026-11-08T07:47:34-04:00",
+   "updated": "2026-11-08T07:34:18-04:00",
    "source": "SAMPLE (synthetic)"
   }
  ],
