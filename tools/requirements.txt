@@ -1,0 +1,7 @@
+# Only needed to rebuild the grid / coastline. The website itself needs none of this.
+numpy
+shapely>=2
+pyshp
+pyproj
+# Only needed for tests/smoke.py
+playwright

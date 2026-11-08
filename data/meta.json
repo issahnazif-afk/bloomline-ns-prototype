@@ -1,0 +1,441 @@
+{
+ "schema": 1,
+ "dataset": {
+  "kind": "sample",
+  "name": "Halifax Harbour prototype — synthetic sample",
+  "generated_at": "2026-11-08T07:07:34-04:00",
+  "note": "All values are synthetic and for interface demonstration only. Not for operational or safety decisions."
+ },
+ "dates": [
+  "2026-11-08",
+  "2026-11-09",
+  "2026-11-10",
+  "2026-11-11"
+ ],
+ "pixel_m": 300,
+ "pixel_types": {
+  "OBS": 0,
+  "MOD": 1,
+  "INT": 2,
+  "KRI": 3
+ },
+ "layers": [
+  {
+   "id": "interdictions",
+   "type": "table",
+   "label_en": "Shellfish closures (sample)",
+   "label_fr": "Fermetures de mollusques (exemple)",
+   "footnote_en": "Closures here are synthetic. Real closures come from the regulator.",
+   "footnote_fr": "Ces fermetures sont synthétiques. Les vraies fermetures viennent de l'autorité réglementaire.",
+   "updated": "2026-11-08T07:07:34-04:00",
+   "source": "SAMPLE (synthetic)"
+  },
+  {
+   "id": "habtrail",
+   "type": "pixels",
+   "summary": "p90",
+   "unit": "%",
+   "decimals": 0,
+   "label_en": "HABtrail",
+   "label_fr": "HABtrail",
+   "legend_title_en": "HAB Probability",
+   "legend_title_fr": "Probabilité de PAN",
+   "tooltip_en": "HABtrail",
+   "tooltip_fr": "HABtrail",
+   "footnote_en": "*HAB: Harmful Algal Bloom",
+   "footnote_fr": "*PAN : prolifération d'algues nuisibles",
+   "classes": [
+    {
+     "id": "very_high",
+     "label_en": "Very High",
+     "label_fr": "Très élevée",
+     "min": 90,
+     "max": null,
+     "color": "#ef4444"
+    },
+    {
+     "id": "high",
+     "label_en": "High",
+     "label_fr": "Élevée",
+     "min": 70,
+     "max": 90,
+     "color": "#f59e0b"
+    },
+    {
+     "id": "moderate",
+     "label_en": "Moderate",
+     "label_fr": "Modérée",
+     "min": 50,
+     "max": 70,
+     "color": "#facc15"
+    },
+    {
+     "id": "low",
+     "label_en": "Low",
+     "label_fr": "Faible",
+     "min": 25,
+     "max": 50,
+     "color": "#34d058"
+    },
+    {
+     "id": "very_low",
+     "label_en": "Very Low",
+     "label_fr": "Très faible",
+     "min": null,
+     "max": 25,
+     "color": "#19c3b1"
+    }
+   ],
+   "updated": "2026-11-08T07:07:34-04:00",
+   "source": "SAMPLE (synthetic)"
+  },
+  {
+   "id": "chla",
+   "type": "pixels",
+   "summary": "p90",
+   "unit": "mg/m³",
+   "decimals": 2,
+   "label_en": "Chlorophyll-a",
+   "label_fr": "Chlorophylle a",
+   "legend_title_en": "Chlorophyll-a",
+   "legend_title_fr": "Chlorophylle a",
+   "tooltip_en": "Chl-a",
+   "tooltip_fr": "Chl a",
+   "footnote_en": "",
+   "footnote_fr": "",
+   "classes": [
+    {
+     "id": "very_high",
+     "label_en": "Very High",
+     "label_fr": "Très élevée",
+     "min": 15,
+     "max": null,
+     "color": "#ef4444"
+    },
+    {
+     "id": "high",
+     "label_en": "High",
+     "label_fr": "Élevée",
+     "min": 8,
+     "max": 15,
+     "color": "#f59e0b"
+    },
+    {
+     "id": "moderate",
+     "label_en": "Moderate",
+     "label_fr": "Modérée",
+     "min": 4,
+     "max": 8,
+     "color": "#facc15"
+    },
+    {
+     "id": "low",
+     "label_en": "Low",
+     "label_fr": "Faible",
+     "min": null,
+     "max": 4,
+     "color": "#34d058"
+    }
+   ],
+   "updated": "2026-11-08T07:07:34-04:00",
+   "source": "SAMPLE (synthetic)"
+  },
+  {
+   "id": "sst",
+   "type": "pixels",
+   "summary": "mean",
+   "unit": "°C",
+   "decimals": 1,
+   "label_en": "SST",
+   "label_fr": "TSM",
+   "legend_title_en": "SST",
+   "legend_title_fr": "TSM",
+   "tooltip_en": "SST",
+   "tooltip_fr": "TSM",
+   "footnote_en": "*SST: Sea Surface Temperature",
+   "footnote_fr": "*TSM : température de surface de la mer",
+   "classes": [
+    {
+     "id": "very_high",
+     "label_en": "Very High",
+     "label_fr": "Très élevée",
+     "min": 10.5,
+     "max": null,
+     "color": "#ef4444"
+    },
+    {
+     "id": "high",
+     "label_en": "High",
+     "label_fr": "Élevée",
+     "min": 10,
+     "max": 10.5,
+     "color": "#f59e0b"
+    },
+    {
+     "id": "moderate",
+     "label_en": "Moderate",
+     "label_fr": "Modérée",
+     "min": 9.5,
+     "max": 10,
+     "color": "#facc15"
+    },
+    {
+     "id": "low",
+     "label_en": "Low",
+     "label_fr": "Faible",
+     "min": null,
+     "max": 9.5,
+     "color": "#34d058"
+    }
+   ],
+   "updated": "2026-11-08T07:07:34-04:00",
+   "source": "SAMPLE (synthetic)"
+  },
+  {
+   "id": "salinity",
+   "type": "pixels",
+   "summary": "mean",
+   "unit": "PSU",
+   "decimals": 1,
+   "label_en": "Salinity",
+   "label_fr": "Salinité",
+   "legend_title_en": "Salinity",
+   "legend_title_fr": "Salinité",
+   "tooltip_en": "Salinity",
+   "tooltip_fr": "Salinité",
+   "footnote_en": "",
+   "footnote_fr": "",
+   "classes": [
+    {
+     "id": "high",
+     "label_en": "Marine",
+     "label_fr": "Marine",
+     "min": 31,
+     "max": null,
+     "color": "#19c3b1"
+    },
+    {
+     "id": "moderate",
+     "label_en": "Brackish-marine",
+     "label_fr": "Saumâtre-marine",
+     "min": 29.5,
+     "max": 31,
+     "color": "#34d058"
+    },
+    {
+     "id": "low",
+     "label_en": "Brackish",
+     "label_fr": "Saumâtre",
+     "min": 27,
+     "max": 29.5,
+     "color": "#facc15"
+    },
+    {
+     "id": "very_low",
+     "label_en": "Fresher",
+     "label_fr": "Plus douce",
+     "min": null,
+     "max": 27,
+     "color": "#f59e0b"
+    }
+   ],
+   "updated": "2026-11-08T07:07:34-04:00",
+   "source": "SAMPLE (synthetic)"
+  },
+  {
+   "id": "wqi",
+   "type": "pixels",
+   "summary": "p10",
+   "unit": "",
+   "decimals": 0,
+   "label_en": "Water Quality Index",
+   "label_fr": "Indice de qualité de l'eau",
+   "legend_title_en": "Water Quality Index",
+   "legend_title_fr": "Indice de qualité de l'eau",
+   "tooltip_en": "WQI",
+   "tooltip_fr": "IQE",
+   "footnote_en": "Index 0–100, higher is better.",
+   "footnote_fr": "Indice 0–100, plus élevé = meilleur.",
+   "classes": [
+    {
+     "id": "excellent",
+     "label_en": "Excellent",
+     "label_fr": "Excellente",
+     "min": 80,
+     "max": null,
+     "color": "#19c3b1"
+    },
+    {
+     "id": "good",
+     "label_en": "Good",
+     "label_fr": "Bonne",
+     "min": 60,
+     "max": 80,
+     "color": "#34d058"
+    },
+    {
+     "id": "fair",
+     "label_en": "Fair",
+     "label_fr": "Passable",
+     "min": 40,
+     "max": 60,
+     "color": "#facc15"
+    },
+    {
+     "id": "poor",
+     "label_en": "Poor",
+     "label_fr": "Mauvaise",
+     "min": 20,
+     "max": 40,
+     "color": "#f59e0b"
+    },
+    {
+     "id": "very_poor",
+     "label_en": "Very Poor",
+     "label_fr": "Très mauvaise",
+     "min": null,
+     "max": 20,
+     "color": "#ef4444"
+    }
+   ],
+   "updated": "2026-11-08T07:07:34-04:00",
+   "source": "SAMPLE (synthetic)"
+  },
+  {
+   "id": "sediments",
+   "type": "pixels",
+   "summary": "p90",
+   "unit": "mg/L",
+   "decimals": 1,
+   "label_en": "Sediments",
+   "label_fr": "Sédiments",
+   "legend_title_en": "Suspended Matter",
+   "legend_title_fr": "Matières en suspension",
+   "tooltip_en": "Suspended matter",
+   "tooltip_fr": "Matières en suspension",
+   "footnote_en": "",
+   "footnote_fr": "",
+   "classes": [
+    {
+     "id": "very_high",
+     "label_en": "Very High",
+     "label_fr": "Très élevée",
+     "min": 20,
+     "max": null,
+     "color": "#ef4444"
+    },
+    {
+     "id": "high",
+     "label_en": "High",
+     "label_fr": "Élevée",
+     "min": 10,
+     "max": 20,
+     "color": "#f59e0b"
+    },
+    {
+     "id": "moderate",
+     "label_en": "Moderate",
+     "label_fr": "Modérée",
+     "min": 5,
+     "max": 10,
+     "color": "#facc15"
+    },
+    {
+     "id": "low",
+     "label_en": "Low",
+     "label_fr": "Faible",
+     "min": null,
+     "max": 5,
+     "color": "#34d058"
+    }
+   ],
+   "updated": "2026-11-08T07:07:34-04:00",
+   "source": "SAMPLE (synthetic)"
+  }
+ ],
+ "species": [
+  {
+   "id": "blue_mussel",
+   "name_en": "Blue mussel",
+   "name_fr": "Moule bleue",
+   "threshold": 70
+  },
+  {
+   "id": "soft_shell_clam",
+   "name_en": "Soft-shell clam",
+   "name_fr": "Mye commune",
+   "threshold": 70
+  },
+  {
+   "id": "eastern_oyster",
+   "name_en": "Eastern oyster",
+   "name_fr": "Huître américaine",
+   "threshold": 70
+  },
+  {
+   "id": "razor_clam",
+   "name_en": "Atlantic razor clam",
+   "name_fr": "Couteau de l'Atlantique",
+   "threshold": 75
+  },
+  {
+   "id": "quahog",
+   "name_en": "Ocean quahog",
+   "name_fr": "Praire",
+   "threshold": 85
+  },
+  {
+   "id": "sea_scallop",
+   "name_en": "Sea scallop",
+   "name_fr": "Pétoncle géant",
+   "threshold": 90
+  }
+ ],
+ "zone_species": {
+  "BDB": [
+   "blue_mussel",
+   "soft_shell_clam"
+  ],
+  "NWA": [
+   "blue_mussel",
+   "soft_shell_clam"
+  ],
+  "INH": [
+   "blue_mussel"
+  ],
+  "OUH": [
+   "blue_mussel",
+   "soft_shell_clam",
+   "quahog"
+  ],
+  "EAP": [
+   "blue_mussel",
+   "soft_shell_clam",
+   "eastern_oyster",
+   "razor_clam"
+  ],
+  "APR": [
+   "blue_mussel",
+   "razor_clam",
+   "quahog",
+   "sea_scallop"
+  ]
+ },
+ "map": {
+  "center": [
+   -63.53,
+   44.6
+  ],
+  "zoom": 10.4,
+  "bounds": [
+   [
+    -63.74,
+    44.45
+   ],
+   [
+    -63.34,
+    44.78
+   ]
+  ]
+ }
+}
