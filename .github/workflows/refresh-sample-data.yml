@@ -1,0 +1,31 @@
+# Keeps the sample data's "today" current so the public prototype never shows last week's dates.
+# Remove this file once real data is wired in. NOTE: written without being able to run it, so check the
+# first run under the Actions tab. If the site does not redeploy after the bot's commit, run the
+# "pages-build-deployment" workflow manually or use a personal access token in the checkout step.
+name: Refresh sample data
+
+on:
+  schedule:
+    - cron: "17 9 * * *"      # daily, 09:17 UTC (05:17 in Halifax)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install numpy
+      - run: python3 tools/make_sample_data.py
+      - run: python3 tools/validate_data.py
+      - name: Commit if anything changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A data
+          if git diff --cached --quiet; then echo "No changes"; else git commit -m "Refresh sample data"; git push; fi
